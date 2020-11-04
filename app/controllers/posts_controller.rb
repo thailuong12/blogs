@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     before_action :post_params, only: [:create, :update]
 
     def index
-        @posts = policy_scope(Post)
+        posts = policy_scope(Post)#.filter(params.slice(:offset, :limit))
     end
 
     def new
