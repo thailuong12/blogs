@@ -4,12 +4,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :posts do
-    collection do
-      get '/new' => 'posts#new'
-      post '/new' => 'posts#create'
-    end
-  end
+  resources :posts
 
   root to: 'posts#index'
 end
