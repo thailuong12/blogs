@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     before_action :post_params, only: [:create, :update]
 
     def index
-        @posts = policy_scope(Post)#.filter(params.slice(:offset, :limit))
+        @posts = policy_scope(Post).includes(:user)#.filter(params.slice(:offset, :limit))
     end
 
     def new
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
     def show
         authorize_post
-        @post = post
+        @post = post_with_user
     end
 
     def edit
@@ -46,6 +46,10 @@ class PostsController < ApplicationController
 
     def post
         @_post ||= Post.find_by(id: params[:id])
+    end
+
+    def post_with_user
+        @_post_with_user ||= Post.includes(:user).find_by(id: params[:id])
     end
 
     def authorize_post

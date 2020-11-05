@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :posts
-
+  namespace :admins do
+    get '/' => "admins#posts"
+  end
   root to: 'posts#index'
 end

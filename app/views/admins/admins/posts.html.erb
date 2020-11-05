@@ -1,0 +1,29 @@
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Blog App</a>
+        </nav>
+        <div id="layoutSidenav">
+            <%= render  "partial/admin_sidebar" %>
+            <div id="layoutSidenav_content">
+                <main class="container">
+                    <div class="container-fluid">
+                    <div class="post-preview">
+                        <% @posts.each do |post| %>
+                        <%= link_to post_path(post) do %>
+                            <h2 class="post-title">
+                            <%= post.title %>
+                            </h2>
+                        <% end %>
+                        <p class="post-meta">Posted by
+                            <a><%= post.user.first_name %> <%= post.user.last_name %></a>
+                            on <%= post.created_at.strftime("%Y-%m-%d") %> </p>
+                             <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary' %>
+                            <%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-primary' %>
+                        <hr>
+                    <% end %>
+                        </div>
+                    </div>
+                    <%= link_to 'Create Post', new_post_path, class: 'btn btn-primary' %>
+                    </div>
+                </main>
+            </div>
+        </div>
