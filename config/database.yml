@@ -12,4 +12,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DDATABASE_URL']  %>
+  database: <%= ENV['DATABASE_URL']  %>
