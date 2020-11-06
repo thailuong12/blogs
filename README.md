@@ -9,4 +9,4 @@ Things you may want to cover:
 
 - In heroku server I have created a admin user: email: admin@admin.com , password: password
 
-- When loging in as an admin, you will be redirected to admin page, where you can see all the posts.
+- When logging in as an admin, you will be redirected to admin page, where you can see all the posts.
