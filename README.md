@@ -10,3 +10,5 @@ Things you may want to cover:
 - In heroku server I have created a admin user: email: admin@admin.com , password: password
 
 - When logging in as an admin, you will be redirected to admin page, where you can see all the posts.
+
+- I have set up basic Github CI/CD auto deploy, but my heroku account may reach the build limit.
